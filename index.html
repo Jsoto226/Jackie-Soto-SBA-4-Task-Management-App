@@ -1,3 +1,5 @@
+<!-- Project Instructions- 1. Create the HTML Structure-->
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -5,7 +7,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css" />
-    <title>SBA-4 Task Management App</title>
+    <title> SBA-4 Task Management App </title>
   </head>
-  <body></body>
+  <body>
+    <main class="container">
+      <h1> Task Manager </h1>
+      <!--Project Requirements--> 
+      <!-- 1. Adding new tasks: Task Name, Category, Deadline, Initial Status, and button-->
+      <section aria-labelledby="add-task-heading">
+        <h2 id="add-task-heading"> Add a Task </h2>
+        <form id="task-form">
+          <div>
+            <label for="task-name"> Task Name </label>
+            <input type="text" id="task-name" placeholder="Task Name" />
+          </div>
+
+          <div>
+            <label for="task-catergory"> Category </label>
+            <select id="task-catergory" required>
+              <option value="Work"> Work </option>
+              <option value="School"> School </option>
+              <option value="Personal"> Personal </option>
+            </select>
+          </div>
+
+          <div>
+            <label for="task-deadline"> Deadline </label>
+            <input type="date" id="task-deadline" required />
+          </div>
+
+          <div>
+            <label for="task-status"> Initial Status </label>
+            <select id="task-status">
+                <option value="In Progress"> In Progress </option>
+                <option value="Completed"> Completed </option>
+            </select>
+          </div>
+
+          <button type="submit"> Add Task </button>
+        </form>
+        <!-- Task Statuses--> 
+         <section aria-labelledby="filter-heading">
+            <h2 id="filter-heading"> Filter Tasks</h2>
+            <label for="filter-status"> Status </label>
+            <select id="filter-status">
+                <option value="All"> All </option>
+                <option value="In Progress"> In Progress </option>
+                <option value="Completed"> Completed </option>
+                <option value="Overdue"> Overdue </option>
+             </select>
+         </section>
+
+         <!-- Task List Display-->
+          <section aria-labelledby="task-list-heading">
+            <h2 id="task-list-heading"> Task List </h2>
+            <ul id="task-list"></ul>
+          </section>
+      </section>
+    </main>
+  </body>
 </html>
