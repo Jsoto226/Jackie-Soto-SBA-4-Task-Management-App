@@ -13,3 +13,28 @@ const filterCategorySelect = document.querySelector("#filter-catergory");
 const taskListContainer = document.querySelector("#task-list");
 
 console.log("form:", taskForm);
+
+// ///////////////////////////////////////
+// Step 3. Making task board functional //
+// ///////////////////////////////////////
+
+let tasks = [];
+function addTask(event){
+    event.preventDetault();
+
+    const newTask = {
+        id: Date.now(),
+        name: taskNameInput.value.trim(),
+        category: taskCategorySelect.value,
+        deadline: taskDeadlineInput.value,
+        status: taskStatusSelect.value,
+    };
+
+    tasks.push(newTask);
+
+    console.log("New task created:", newTask);
+    console.log("Order board (all tasks):", tasks);
+
+    taskForm.reset();
+}
+taskForm.addEventListener("submit", addTask);
