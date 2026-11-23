@@ -19,23 +19,24 @@ console.log("form:", taskForm);
 // ///////////////////////////////////////
 
 let tasks = [];
-function addTask(event){
-    event.preventDetault();
+function addTask(event) {
+  event.preventDetault();
 
-    const newTask = {
-        id: Date.now(),
-        name: taskNameInput.value.trim(),
-        category: taskCategorySelect.value,
-        deadline: taskDeadlineInput.value,
-        status: taskStatusSelect.value,
-    };
+  const newTask = {
+    id: Date.now(),
+    name: taskNameInput.value.trim(),
+    category: taskCategorySelect.value,
+    deadline: taskDeadlineInput.value,
+    status: taskStatusSelect.value,
+  };
 
-    tasks.push(newTask);
+  tasks.push(newTask);
+  checkOverdueTask()
 
-    console.log("New task created:", newTask);
-    console.log("Order board (all tasks):", tasks);
+  console.log("New task created:", newTask);
+  console.log("Order board (all tasks):", tasks);
 
-    taskForm.reset();
+  taskForm.reset();
 }
 taskForm.addEventListener("submit", addTask);
 
@@ -44,16 +45,18 @@ taskForm.addEventListener("submit", addTask);
 // /////////////////////////////////////////////////////////////////////
 
 function checkOverdueTask() {
-    const today = new Date();
-    const years = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2, "0");
-    const day = String(today.getDate()) .padStart(2, "0");
-    const todayString = `${year}-${month}-${day}`;
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+  const todayString = `${year}-${month}-${day}`;
 
-    tasks.forEach((task) => {
-        if (task.status !== "Completed" && task.deadline < todayString) {
-            task.status = "Overdue";
-        }
-    });
+  tasks.forEach((task) => {
+    if (task.status !== "Completed" && task.deadline < todayString) {
+      task.status = "Overdue";
+    }
+  });
+
+  console.log("Today's date:", todayString);
+  console.log("After overdue check:", tasks);
 }
-
