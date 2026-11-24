@@ -32,8 +32,9 @@ function addTask(event) {
   };
 
   tasks.push(newTask);
-  checkOverdueTask();
+  
   saveTask();
+  
   renderTasks();
 
   console.log("New task created:", newTask);
@@ -54,7 +55,7 @@ function loadTasks() {
   const savedTasks = localStorage.getItem(STORAGE_KEY); //Following AI steps for task 5.
 
   if (savedTasks !== null) {
-    task = JSON.parse(savedTasks);
+    tasks = JSON.parse(savedTasks);
   } else {
     tasks = [];
   }
@@ -100,3 +101,24 @@ function renderTasks() {
     taskListContainer.appendChild(li);
   })
 }
+
+function getTodayString() {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function getTaskStatus(task) {
+  const today = getTodayString();
+
+  if (task.status !== "Completed" && task.deadline < today) {
+    return "Overdue";
+  }
+
+  return task.status;
+}
+loadTasks();
+
+renderTasks();
