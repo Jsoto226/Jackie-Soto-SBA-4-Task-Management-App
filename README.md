@@ -9,3 +9,5 @@ I have been trying to find a unique method to learn the Javascript analogy, so I
 <br>
 
 If I had more time, I would improve the appearance of the task manager and make the filtering features be much smooter. I definetly would like to do more research on my space time on how to propely understand all this. I believe the solution to that is Edabit and just obtaining muscle memory and learning by breaking the code. Overall, the project is teaching me valuable lessons, one of them is being attentive, it is gradually getting better to understand all three languages. I know I will get there surely. 
+
+I forgot to mention having AI helping me on task 5. It was nice to see how AI (Gemini) gave me directions of my errors and mistakes that I did, along with some spacing. My biggest confusing was learning where to place certain commands to make the task manager more functional. Asking Gemini to explain this to me like I was five was quite hilarious with all the small step by steps and why they were placed in certain areas. I did ask it a lot of questions to  Gemini to understand task 5 much better.
